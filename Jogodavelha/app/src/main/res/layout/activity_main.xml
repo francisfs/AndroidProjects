@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A1B1C"
+    tools:context=".MainActivity">
+
+
+    <Button
+
+        android:id="@+id/btn11"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@id/btn22"
+        android:layout_toLeftOf="@id/btn22"
+        android:textSize="50dp"
+
+        />
+
+    <Button
+        android:id="@+id/btn12"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@id/btn22"
+        android:layout_centerHorizontal="true"
+        android:textSize="50dp" />
+
+    <Button
+        android:id="@+id/btn13"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@id/btn22"
+        android:layout_toRightOf="@id/btn22"
+        android:textSize="50dp" />
+
+    <Button
+        android:id="@+id/btn22"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="8.5dp"
+        android:textSize="50dp" />
+
+    <Button
+        android:id="@+id/btn23"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:layout_toRightOf="@id/btn22"
+        android:textSize="50dp" />
+
+    <Button
+        android:id="@+id/btn21"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:layout_toLeftOf="@id/btn22"
+        android:textSize="50dp" />
+
+    <Button
+        android:id="@+id/btn31"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/btn22"
+        android:layout_toLeftOf="@id/btn22"
+        android:textSize="50dp" />
+
+    <Button
+        android:id="@+id/btn32"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/btn22"
+        android:layout_centerHorizontal="true"
+        android:textSize="50dp" />
+
+    <Button
+        android:id="@+id/btn33"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/btn22"
+        android:layout_toRightOf="@id/btn22"
+        android:textSize="50dp" />
+
+    <Button
+        android:id="@+id/btnReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Reset" />
+
+    <TextView
+        android:id="@+id/txtJogador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Jogador: X"
+        android:textAlignment="center"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="30dp" />
+</RelativeLayout>
+
+
+

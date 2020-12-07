@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/design_default_color_primary_variant"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btnKmM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="KM > METRO"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="80dp" />
+
+    <Button
+        android:id="@+id/btnMKm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="METRO > KM"
+        tools:layout_editor_absoluteX="143dp"
+        tools:layout_editor_absoluteY="160dp" />
+
+    <Button
+        android:id="@+id/btnMCm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:text="METRO > CM"
+        app:layout_constraintStart_toStartOf="@+id/btnMKm"
+        app:layout_constraintTop_toBottomOf="@+id/btnMKm" />
+
+    <Button
+        android:id="@+id/btnCmM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:text="CM > METRO"
+        app:layout_constraintStart_toStartOf="@+id/btnMCm"
+        app:layout_constraintTop_toBottomOf="@+id/btnMCm" />
+</androidx.constraintlayout.widget.ConstraintLayout>
