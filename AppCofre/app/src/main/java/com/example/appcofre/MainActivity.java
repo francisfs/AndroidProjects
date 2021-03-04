@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     credencialModel credencial = new credencialModel();
     bdModel bd;
+
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +28,7 @@ public class MainActivity extends AppCompatActivity {
         edtNomeProg = (EditText) findViewById(R.id.edtServico);
         edtUsuarioProg = (EditText) findViewById(R.id.edtUsuario);
         edtSenhaProg = (EditText) findViewById(R.id.edtSenha);
-
         carregarRegistroZero();
-
     }
 
     public void clickBtnDeletar(View v)
@@ -42,8 +41,6 @@ public class MainActivity extends AppCompatActivity {
         bd.delete(bd.getTabela(), credencial);
         limpar();
         carregarRegistroZero();
-
-
     }
 
     public void clickBtnAlterar(View v)
@@ -63,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         credencial.setSenha(edtSenhaProg.getText().toString());
         bd = new bdModel(getApplicationContext());
         bd.insert(bdModel.getTabela(), credencial);
-
+        carregarRegistroZero();
     }
 
     public void clickBtnNovo(View v)
@@ -92,11 +89,10 @@ public class MainActivity extends AppCompatActivity {
             if (registroAtual < quantidadeRegistros - 1)
             {
                 registroAtual = registroAtual + 1;
-                carregarDados(registroAtual);
+                 carregarDados(registroAtual);
             }
         }
     }
-
 
     public void limpar()
     {
@@ -107,20 +103,16 @@ public class MainActivity extends AppCompatActivity {
         edtNomeProg.requestFocus();
     }
 
-    public void carregarRegistroZero(){
-        registroAtual = 0;
-        carregarDados(registroAtual);
-    }
+    public void carregarDados ( int i){
+    bd = new bdModel(getApplicationContext());
+    ArrayList<credencialModel> arrayCredencialModel;
+    arrayCredencialModel = bd.select();
+    quantidadeRegistros = arrayCredencialModel.size();
 
-
-    public void carregarDados(int i) {
-        bd = new bdModel(getApplicationContext());
-        ArrayList<credencialModel> arrayCredencialModel;
-        arrayCredencialModel = bd.select();
-        quantidadeRegistros = arrayCredencialModel.size();
-        if(quantidadeRegistros != 0){
+        if (quantidadeRegistros != 0)
+        {
             credencialModel credencialModel = arrayCredencialModel.get(i);
-            txtServicoProg.setText(" Serviço " + String.valueOf(credencialModel.getId()) + ":");
+            txtServicoProg.setText("Serviço " + String.valueOf(credencialModel.getId()) + ":");
             idCredencialAtual = credencialModel.getId();
             edtNomeProg.setText(credencialModel.getNome());
             edtUsuarioProg.setText(credencialModel.getUsuario());
@@ -128,8 +120,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-
-
+    public void carregarRegistroZero(){
+        registroAtual = 0;
+        carregarDados(registroAtual);
+    }
 
 }

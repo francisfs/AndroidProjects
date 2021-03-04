@@ -64,16 +64,17 @@ public class bdModel extends SQLiteOpenHelper {
     }
 
 
-    public String criarTabela()
-    {
+    public String criarTabela (){
         setCmdSQL("CREATE TABLE " + getTabela() + " (" +
                 getId() + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                getNome() + "TEXT, " +
-                getUsuario() + "TEXT, " +
-                getSenha() +"TEXT" + ")"
+                getNome() + " TEXT, " +
+                getUsuario() + " TEXT, " +
+                getSenha() + " TEXT" +
+                ")"
         );
         return getCmdSQL();
-    };
+    }
+
 
 
     @Override
@@ -95,7 +96,7 @@ public class bdModel extends SQLiteOpenHelper {
         dataBase.insert(tabela, null, dados);
     }
 
-    public ArrayList<credencialModel> select(){
+    public ArrayList<credencialModel> select() {
         String[] colunas = {getId(), getNome(), getUsuario(), getSenha()};
         Cursor cursor = dataBase.query(getTabela(), colunas,null, null, null, null, null,null);
         ArrayList<credencialModel> arrayCredencialModel = new ArrayList<>();
