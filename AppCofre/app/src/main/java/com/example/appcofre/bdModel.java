@@ -1,11 +1,16 @@
 package com.example.appcofre;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class bdModel extends SQLiteOpenHelper {
 
+    SQLilteDatabase database;
+
     public bdModel(Context context){
+        super(context, getDbNome(), null, getDbVersao());
+        dataBase = getWritableDatabase();
 
     }
     private static String dbNome = "dbCredencial";

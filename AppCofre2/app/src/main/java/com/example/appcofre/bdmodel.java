@@ -4,6 +4,9 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
+
 public class bdmodel extends SQLiteOpenHelper {
 
     SQLiteDatabase database;
@@ -82,4 +85,32 @@ public class bdmodel extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+    public void insert(String tabela, credencialModel credencial) {
+        ContentValues dados = new ContentValues();
+        dados.put(getNome(), credencial.getNome());
+        dados.put(getUsuario(), credencial.getUsuario());
+        dados.put(getSenha(), credencial.getSenha());
+        dataBase.insert(tabela, null, dados);
+    }
+    public ArrayList<credencialModel> select(){
+        String[] colunas = {getId(), getNome(), getUsuario(), getSenha()};
+        Cursor cursor = dataBase.query(getTabela(), colunas,null, null, null, null, null,
+                null);
+        ArrayList<credencialModel> arrayCredencialModel = new ArrayList<>();
+        while(cursor.moveToNext()){
+            credencialModel credencialModel = new credencialModel();
+            credencialModel.setId(cursor.getInt(0));
+            credencialModel.setNome(cursor.getString(1));
+            credencialModel.setUsuario(cursor.getString(2));
+            credencialModel.setSenha(cursor.getString(3));
+            arrayCredencialModel.add(credencialModel);
+        }
+        return arrayCredencialModel;
+    }
+
+
+
+
+
 }

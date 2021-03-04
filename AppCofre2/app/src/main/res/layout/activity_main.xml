@@ -76,16 +76,16 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/btnAnterior"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:background="@drawable/grad_arred"
+        android:onClick="clickBtnAnterior"
         android:text="Anterior"
         app:layout_constraintBottom_toTopOf="@id/btnCadastrar"
-        android:layout_marginVertical="10dp"
         app:layout_constraintEnd_toStartOf="@+id/btnNovo"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/grad_arred"
 
 
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnNovo"
@@ -106,14 +106,14 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/btnProximo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:background="@drawable/grad_arred"
+        android:onClick="clickBtnProximo"
         android:text="Próximo"
         app:layout_constraintBottom_toTopOf="@id/btnCadastrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        android:layout_marginVertical="10dp"
-        app:layout_constraintStart_toEndOf="@+id/btnNovo"
-        android:background="@drawable/grad_arred"
-        />
+        app:layout_constraintStart_toEndOf="@+id/btnNovo" />
 
     <Button
         android:id="@+id/btnCadastrar"
