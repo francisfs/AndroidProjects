@@ -66,54 +66,66 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@id/btnAnterior"
         />
+
     <Button
         android:id="@+id/btnAnterior"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="clickBtnAnterior"
         android:text="Anterior"
         app:layout_constraintBottom_toTopOf="@id/btnCadastrar"
         app:layout_constraintEnd_toStartOf="@+id/btnNovo"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/btnNovo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="clickBtnNovo"
         android:text="Novo"
         app:layout_constraintBottom_toTopOf="@id/btnCadastrar"
         app:layout_constraintEnd_toStartOf="@+id/btnProximo"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnAnterior" />
+
     <Button
         android:id="@+id/btnProximo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="clickBtnProximo"
         android:text="Próximo"
         app:layout_constraintBottom_toTopOf="@id/btnCadastrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnNovo" />
+
     <Button
         android:id="@+id/btnCadastrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:onClick="clickBtnCadastrar"
         android:text="Cadastrar"
         app:layout_constraintBottom_toTopOf="@id/btnAlterar"
         tools:layout_editor_absoluteX="10dp" />
+
     <Button
         android:id="@+id/btnAlterar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:onClick="clickBtnAlterar"
         android:text="Alterar"
         app:layout_constraintBottom_toTopOf="@id/btnDeletar"
         tools:layout_editor_absoluteX="10dp" />
+
     <Button
         android:id="@+id/btnDeletar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:onClick="clickBtnDeletar"
         android:text="Deletar"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="10dp" />
