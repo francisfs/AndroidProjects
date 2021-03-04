@@ -1,10 +1,8 @@
 package com.example.appcofre;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -21,13 +19,12 @@ public class MainActivity extends AppCompatActivity {
     int idCredencialAtual;
 
     credencialModel credencial = new credencialModel();
-    bdmodel bd;
+    bdModel bd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         txtServicoProg = (TextView) findViewById(R.id.txtServico);
         edtNomeProg = (EditText) findViewById(R.id.edtServico);
         edtUsuarioProg = (EditText) findViewById(R.id.edtUsuario);
@@ -55,10 +52,9 @@ public class MainActivity extends AppCompatActivity {
         credencial.setNome(edtNomeProg.getText().toString());
         credencial.setUsuario(edtUsuarioProg.getText().toString());
         credencial.setSenha(edtSenhaProg.getText().toString());
-        bd = new bdmodel(getApplicationContext());
-        bd.insert(bdmodel.getTabela(), credencial);
+        bd = new bdModel(getApplicationContext());
+        bd.insert(bdModel.getTabela(), credencial);
         carregarRegistroZero();
-
 
     }
 
@@ -75,8 +71,9 @@ public class MainActivity extends AppCompatActivity {
         txtServicoProg.setText("serviço");
         edtNomeProg.requestFocus();
     }
+
     public void carregarDados(int i) {
-        bd = new bdmodel(getApplicationContext());
+        bd = new bdModel(getApplicationContext());
         ArrayList<credencialModel> arrayCredencialModel;
         arrayCredencialModel = bd.select();
         quantidadeRegistros = arrayCredencialModel.size();

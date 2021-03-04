@@ -5,14 +5,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import java.util.ArrayList;
 
-public class bdmodel extends SQLiteOpenHelper {
+public class bdModel extends SQLiteOpenHelper {
 
     SQLiteDatabase dataBase;
 
-    public bdmodel(Context context){
+    public bdModel(Context context){
         super(context, getDbNome(), null, getDbVersao());
         dataBase = getWritableDatabase();
     }
@@ -28,53 +27,53 @@ public class bdmodel extends SQLiteOpenHelper {
 
 
 
-        public static String getDbNome() {
-            return dbNome;
-        }
+    public static String getDbNome() {
+        return dbNome;
+    }
 
-        public static int getDbVersao() {
-            return dbVersao;
-        }
+    public static int getDbVersao() {
+        return dbVersao;
+    }
 
-        public static String getTabela() {
-            return Tabela;
-        }
+    public static String getTabela() {
+        return Tabela;
+    }
 
-        public static String getId() {
-            return Id;
-        }
+    public static String getId() {
+        return Id;
+    }
 
-        public static String getNome() {
-            return Nome;
-        }
+    public static String getNome() {
+        return Nome;
+    }
 
-        public static String getUsuario() {
-            return Usuario;
-        }
+    public static String getUsuario() {
+        return Usuario;
+    }
 
-        public static String getSenha() {
-            return Senha;
-        }
+    public static String getSenha() {
+        return Senha;
+    }
 
-        public String getCmdSQL() {
-            return CmdSQL;
-        }
+    public String getCmdSQL() {
+        return CmdSQL;
+    }
 
-        public void setCmdSQL(String cmdSQL) {
-            CmdSQL = cmdSQL;
-        }
+    public void setCmdSQL(String cmdSQL) {
+        CmdSQL = cmdSQL;
+    }
 
 
-        public String criarTabela()
-        {
-            setCmdSQL("CREATE TABLE " + getTabela() + " (" +
-                    getId() + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    getNome() + "TEXT, " +
-                    getUsuario() + "TEXT, " +
-                    getSenha() +"TEXT" + ")"
-            );
-            return getCmdSQL();
-        };
+    public String criarTabela()
+    {
+        setCmdSQL("CREATE TABLE " + getTabela() + " (" +
+                getId() + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                getNome() + "TEXT, " +
+                getUsuario() + "TEXT, " +
+                getSenha() +"TEXT" + ")"
+        );
+        return getCmdSQL();
+    };
 
 
     @Override
@@ -98,8 +97,7 @@ public class bdmodel extends SQLiteOpenHelper {
 
     public ArrayList<credencialModel> select(){
         String[] colunas = {getId(), getNome(), getUsuario(), getSenha()};
-        Cursor cursor = dataBase.query(getTabela(), colunas,null, null, null, null, null,
-                null);
+        Cursor cursor = dataBase.query(getTabela(), colunas,null, null, null, null, null,null);
         ArrayList<credencialModel> arrayCredencialModel = new ArrayList<>();
         while(cursor.moveToNext()){
             credencialModel credencialModel = new credencialModel();
