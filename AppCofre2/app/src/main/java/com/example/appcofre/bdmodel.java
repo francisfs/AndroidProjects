@@ -10,11 +10,11 @@ import java.util.ArrayList;
 
 public class bdmodel extends SQLiteOpenHelper {
 
-    SQLiteDatabase database;
+    SQLiteDatabase dataBase;
 
     public bdmodel(Context context){
         super(context, getDbNome(), null, getDbVersao());
-        database = getWritableDatabase();
+        dataBase = getWritableDatabase();
     }
 
     private static String dbNome = "dbCredencial";
@@ -93,12 +93,12 @@ public class bdmodel extends SQLiteOpenHelper {
         dados.put(getNome(), credencial.getNome());
         dados.put(getUsuario(), credencial.getUsuario());
         dados.put(getSenha(), credencial.getSenha());
-        database.insert(tabela, null, dados);
+        dataBase.insert(tabela, null, dados);
     }
 
     public ArrayList<credencialModel> select(){
         String[] colunas = {getId(), getNome(), getUsuario(), getSenha()};
-        Cursor cursor = database.query(getTabela(), colunas,null, null, null, null, null,
+        Cursor cursor = dataBase.query(getTabela(), colunas,null, null, null, null, null,
                 null);
         ArrayList<credencialModel> arrayCredencialModel = new ArrayList<>();
         while(cursor.moveToNext()){
