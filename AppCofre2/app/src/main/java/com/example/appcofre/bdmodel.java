@@ -1,22 +1,22 @@
 package com.example.appcofre;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 
-
 public class bdmodel extends SQLiteOpenHelper {
 
     SQLiteDatabase database;
 
-    public bdmodel(Context context)
-    {
+    public bdmodel(Context context){
         super(context, getDbNome(), null, getDbVersao());
         database = getWritableDatabase();
-
     }
+
     private static String dbNome = "dbCredencial";
     private static int dbVersao = 1;
     private static String Tabela = "tblCredencial";
@@ -26,13 +26,7 @@ public class bdmodel extends SQLiteOpenHelper {
     private static String Senha = "senhaCredencial";
     private String CmdSQL = "";
 
-        public String getCmdSQL() {
-            return CmdSQL;
-        }
 
-        public void setCmdSQL(String cmdSQL) {
-            CmdSQL = cmdSQL;
-        }
 
         public static String getDbNome() {
             return dbNome;
@@ -60,6 +54,14 @@ public class bdmodel extends SQLiteOpenHelper {
 
         public static String getSenha() {
             return Senha;
+        }
+
+        public String getCmdSQL() {
+            return CmdSQL;
+        }
+
+        public void setCmdSQL(String cmdSQL) {
+            CmdSQL = cmdSQL;
         }
 
 
@@ -91,11 +93,12 @@ public class bdmodel extends SQLiteOpenHelper {
         dados.put(getNome(), credencial.getNome());
         dados.put(getUsuario(), credencial.getUsuario());
         dados.put(getSenha(), credencial.getSenha());
-        dataBase.insert(tabela, null, dados);
+        database.insert(tabela, null, dados);
     }
+
     public ArrayList<credencialModel> select(){
         String[] colunas = {getId(), getNome(), getUsuario(), getSenha()};
-        Cursor cursor = dataBase.query(getTabela(), colunas,null, null, null, null, null,
+        Cursor cursor = database.query(getTabela(), colunas,null, null, null, null, null,
                 null);
         ArrayList<credencialModel> arrayCredencialModel = new ArrayList<>();
         while(cursor.moveToNext()){

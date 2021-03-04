@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -57,8 +58,9 @@ public class MainActivity extends AppCompatActivity {
         credencial.setUsuario(edtUsuarioProg.getText().toString());
         credencial.setSenha(edtSenhaProg.getText().toString());
         bd = new bdmodel(getApplicationContext());
-        db.insert(bdmodel.getTabela(), credencial);
-        carregarRegistrozero();
+        bd.insert(bdmodel.getTabela(), credencial);
+        carregarRegistroZero();
+
 
     }
 
@@ -76,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         edtNomeProg.requestFocus();
     }
     public void carregarDados(int i) {
-        bd = new bdModel(getApplicationContext());
+        bd = new bdmodel(getApplicationContext());
         ArrayList<credencialModel> arrayCredencialModel;
         arrayCredencialModel = bd.select();
         quantidadeRegistros = arrayCredencialModel.size();
