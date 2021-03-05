@@ -1,4 +1,4 @@
-package com.example.appcofre;
+package com.example.cofreffs;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;

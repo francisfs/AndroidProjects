@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         edtNomeProg = (EditText) findViewById(R.id.edtServico);
         edtUsuarioProg = (EditText) findViewById(R.id.edtUsuario);
         edtSenhaProg = (EditText) findViewById(R.id.edtSenha);
-        carregarRegistroZero();
+       // carregarRegistroZero();
     }
 
     public void clickBtnDeletar(View v)
