@@ -1,4 +1,4 @@
-package com.example.appcofre;
+package com.example.cofreffs;
 
 import android.content.ContentValues;
 import android.content.Context;
