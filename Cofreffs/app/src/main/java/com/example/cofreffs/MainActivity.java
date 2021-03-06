@@ -3,12 +3,15 @@ package com.example.cofreffs;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
 
     TextView txtServicoProg;
     EditText edtNomeProg;
@@ -25,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         txtServicoProg = (TextView) findViewById(R.id.txtServico);
         edtNomeProg = (EditText) findViewById(R.id.edtServico);
         edtUsuarioProg = (EditText) findViewById(R.id.edtUsuario);
@@ -35,16 +40,24 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickBtnDeletar(View v)
     {
+        credencial.setId(idCredencialAtual);
         credencial.setNome(edtNomeProg.getText().toString());
         credencial.setUsuario(edtUsuarioProg.getText().toString());
         credencial.setSenha(edtSenhaProg.getText().toString());
+        bd = new bdModel(getApplicationContext());
+        bd.delete(bd.getTabela(), credencial);
+        limpar();
+        carregarRegistroZero();
     }
 
     public void clickBtnAlterar(View v)
     {
+        credencial.setId(idCredencialAtual);
         credencial.setNome(edtNomeProg.getText().toString());
         credencial.setUsuario(edtUsuarioProg.getText().toString());
         credencial.setSenha(edtSenhaProg.getText().toString());
+        bd.update(bd.getTabela(), credencial);
+        carregarRegistroZero();
     }
 
     public void clickBtnCadastrar(View v)
@@ -55,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
         bd = new bdModel(getApplicationContext());
         bd.insert(bdModel.getTabela(), credencial);
         carregarRegistroZero();
-
     }
 
     public void clickBtnNovo(View v)
@@ -68,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         edtNomeProg.setText("");
         edtUsuarioProg.setText("");
         edtSenhaProg.setText("");
-        txtServicoProg.setText("serviço");
+        txtServicoProg.setText("Serviço");
         edtNomeProg.requestFocus();
     }
 
