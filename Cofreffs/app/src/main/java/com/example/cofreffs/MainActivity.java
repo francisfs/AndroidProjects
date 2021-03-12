@@ -1,6 +1,8 @@
 package com.example.cofreffs;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -35,9 +37,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickBtnDeletar(View v)
     {
+        credencial.setId(idCredencialAtual);
         credencial.setNome(edtNomeProg.getText().toString());
         credencial.setUsuario(edtUsuarioProg.getText().toString());
         credencial.setSenha(edtSenhaProg.getText().toString());
+        bd = new bdModel(getApplicationContext());
+        bd.delete(bd.getTabela(),credencial);
+        limpar();
+        carregarRegistroZero();
+
     }
 
     public void clickBtnAlterar(View v)
@@ -45,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
         credencial.setNome(edtNomeProg.getText().toString());
         credencial.setUsuario(edtUsuarioProg.getText().toString());
         credencial.setSenha(edtSenhaProg.getText().toString());
+        bd = new bdModel(getApplicationContext());
+        bd.update(bd.getTabela(),credencial);
+
+
     }
 
     public void clickBtnCadastrar(View v)
@@ -61,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
     public void clickBtnNovo(View v)
     {
         limpar();
+
     }
 
     public void limpar()
@@ -68,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         edtNomeProg.setText("");
         edtUsuarioProg.setText("");
         edtSenhaProg.setText("");
-        txtServicoProg.setText("serviço");
+        txtServicoProg.setText("Serviço");
         edtNomeProg.requestFocus();
     }
 

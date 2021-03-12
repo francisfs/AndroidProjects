@@ -15,7 +15,6 @@ public class bdModel extends SQLiteOpenHelper {
         dataBase = getWritableDatabase();
     }
 
-
     private static String dbNome = "dbCredencial";
     private static int dbVersao = 1;
     private static String Tabela = "tblCredencial";
@@ -24,8 +23,6 @@ public class bdModel extends SQLiteOpenHelper {
     private static String Usuario = "usuarioCredencial";
     private static String Senha = "senhaCredencial";
     private String CmdSQL = "";
-
-
 
     public static String getDbNome() {
         return dbNome;
@@ -75,15 +72,12 @@ public class bdModel extends SQLiteOpenHelper {
         return getCmdSQL();
     };
 
-
     @Override
     public void onCreate(SQLiteDatabase db)
     {
         db.execSQL(criarTabela());
 
     }
-
-
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -112,6 +106,26 @@ public class bdModel extends SQLiteOpenHelper {
         }
         return arrayCredencialModel;
     }
+
+    public void update(String tabela, credencialModel credencial)
+    {
+        ContentValues dados = new ContentValues();
+        dados.put(getNome(), credencial.getNome());
+        dados.put(getUsuario(), credencial.getUsuario());
+        dados.put(getSenha(), credencial.getSenha());
+        dataBase.update(tabela,dados, getId() + "=" + credencial.getId(),null);
+    }
+    public void delete(String tabela, credencialModel credencial)
+    {
+        dataBase.delete(tabela,getId() + "=" +  credencial.getId(),null);
+    }
+
+    public void truncate (String tabela, credencialModel credencial)
+    {
+        dataBase.execSQL("alter table" + getTabela() + "AUTO_INCREMENT = 1;");
+    }
+
+
 
 
 
