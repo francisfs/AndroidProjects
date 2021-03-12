@@ -7,22 +7,17 @@
         android:radius="100dp"
         />
     <gradient
-        android:angle="45"
-        android:startColor="#0439F9"
-        android:centerColor="#0AC7E8"
-        android:endColor="#0606F2"
-
+        android:angle="0"
+        android:startColor="#C6B51B"
+        android:centerColor="#000000"
+        android:endColor="#FFC6B51B"
         android:type="linear" />
 
 
 
     <stroke
         android:width="2dp"
-        android:color="#39DCD9"
+        android:color="#000000"
         />
-    <size android:height="20dp"
-        android:width="100dp">
-
-    </size>
 
 </shape>

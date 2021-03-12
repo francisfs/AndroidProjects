@@ -83,6 +83,8 @@ public class bdModel extends SQLiteOpenHelper {
 
     }
 
+
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
@@ -111,19 +113,6 @@ public class bdModel extends SQLiteOpenHelper {
         return arrayCredencialModel;
     }
 
-    public void update(String tabela, credencialModel credencial)
-    {
-        ContentValues dados = new ContentValues();
-        dados.put(getNome(), credencial.getNome());
-        dados.put(getUsuario(), credencial.getUsuario());
-        dados.put(getSenha(),credencial.getSenha());
-        dataBase.update(tabela,dados, getId() + "=" + credencial.getId(), null);
-
-    }
-    public void delete(String tabela, credencialModel credencial)
-    {
-        dataBase.delete(tabela, getId() + "=" + credencial.getId(),null);
-    }
 
 
 
