@@ -6,26 +6,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
+    android:background="@drawable/azull"
+
+
     >
 
     <TextView
         android:id="@+id/txtAppCofre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:text="AppCofre"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@id/txtServico"
         android:textAlignment="center"
-        />
+        app:layout_constraintBottom_toBottomOf="@id/txtServico"
+        android:layout_marginVertical="70dp"
+        android:textColor="@color/white"
+        android:textSize="24dp"
+
+
+        app:layout_constraintBottom_toTopOf="@id/txtServico"
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:id="@+id/txtServico"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Serviço:"
         android:layout_marginHorizontal="10dp"
+        android:text="Serviço:"
+        android:textColor="@color/white"
+        android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@id/edtServico"
-        />
+        tools:layout_editor_absoluteX="10dp" />
 
     <EditText
         android:id="@+id/edtServico"
@@ -33,17 +44,20 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@id/txtUsuario"
-        />
+        tools:layout_editor_absoluteX="10dp" />
 
     <TextView
         android:id="@+id/txtUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Usuário:"
         android:layout_marginHorizontal="10dp"
+        android:text="Usuário:"
+        android:textColor="@color/white"
+        android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@id/edtUsuario"
-        />
+        tools:layout_editor_absoluteX="10dp" />
 
     <EditText
         android:id="@+id/edtUsuario"
@@ -51,26 +65,31 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@id/txtSenha"
-        />
+        tools:layout_editor_absoluteX="10dp" />
 
     <TextView
         android:id="@+id/txtSenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Senha:"
         android:layout_marginHorizontal="10dp"
+        android:text="Senha:"
+        android:textColor="@color/white"
+        android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@id/edtSenha"
-        />
+        tools:layout_editor_absoluteX="10dp" />
 
     <EditText
         android:id="@+id/edtSenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="15dp"
         android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@id/btnAnterior"
-        />
+        tools:layout_editor_absoluteX="15dp" />
 
     <Button
         android:id="@+id/btnAnterior"
@@ -79,10 +98,11 @@
         android:layout_marginVertical="10dp"
         android:background="@drawable/grad_arred"
         android:onClick="clickBtnAnterior"
+
         android:text="Anterior"
         app:layout_constraintBottom_toTopOf="@id/btnCadastrar"
         app:layout_constraintEnd_toStartOf="@+id/btnNovo"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.1"
 
 
         app:layout_constraintStart_toStartOf="parent" />
@@ -96,7 +116,7 @@
         app:layout_constraintBottom_toTopOf="@id/btnCadastrar"
         app:layout_constraintEnd_toStartOf="@+id/btnProximo"
         android:layout_marginVertical="10dp"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toEndOf="@+id/btnAnterior"
         android:background="@drawable/grad_arred"
 
@@ -110,9 +130,10 @@
         android:background="@drawable/grad_arred"
         android:onClick="clickBtnProximo"
         android:text="Próximo"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@id/btnCadastrar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toEndOf="@+id/btnNovo" />
 
     <Button
@@ -135,6 +156,7 @@
         android:background="@drawable/grad_arred"
         android:onClick="clickBtnAlterar"
         android:text="Alterar"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@id/btnDeletar"
         tools:layout_editor_absoluteX="10dp" />
 
@@ -146,6 +168,7 @@
         android:background="@drawable/grad_arred"
         android:onClick="clickBtnDeletar"
         android:text="Deletar"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="10dp" />
 
