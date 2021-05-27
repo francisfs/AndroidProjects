@@ -1,0 +1,8 @@
+com/example/appcofre/BuildConfig.java
+ com.example.appcofre.BuildConfig
+com/example/appcofre/credencialModel.java
+ com.example.appcofre.credencialModel
+com/example/appcofre/bdModel.java
+ com.example.appcofre.bdModel
+com/example/appcofre/MainActivity.java
+ com.example.appcofre.MainActivity

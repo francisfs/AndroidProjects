@@ -1,0 +1,4 @@
+com/example/jogodescubranumero/MainActivity.java
+ com.example.jogodescubranumero.MainActivity
+com/example/jogodescubranumero/BuildConfig.java
+ com.example.jogodescubranumero.BuildConfig
